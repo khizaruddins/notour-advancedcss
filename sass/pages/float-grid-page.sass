@@ -1,0 +1,28 @@
+@import ../abstracts/_variables
+
+@import ../abstracts/_mixins
+@import ../base/_base
+@import ../base/_typography
+@import ../base/_animations
+@import ../layout/float-grid
+
+
+.grid-system
+  background: $color-white
+
+  h3
+    font-size: 4rem
+    margin:
+      bottom: 2rem
+
+  div 
+    font-size: 2rem
+  padding: 3rem
+  margin: 3rem
+
+.row
+  background: #eeeeee
+  color: $color-white
+
+  [class^="col-"]
+    background: $color-primary-light

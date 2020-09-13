@@ -1,0 +1,73 @@
+.story
+  width: 75%
+  margin: 0 auto
+  box-shadow: 0 3rem 6rem rgba($color-black,.1rem)
+  background-color: rgba($color-white, .6)
+  border-radius: 3px
+  padding: 6rem
+  padding-left: 9rem
+  font-size: $default-font-size
+  transform: skewX(-12deg)
+  
+  +respond(tab-port)
+    width: 100%
+    padding: 4rem
+    padding-left: 7rem
+  
+  +respond(phone)
+    transform: skewX(0)
+    
+
+  &__shape
+    width: 15rem
+    height: 15rem
+    float: left
+    transform: translateX(-3rem) skewX(12deg)
+    position: relative
+    overflow: hidden
+    border-radius: 50%
+
+    // it is used for checking the property which is browser compatible if its compatible the css inside is used
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0))
+      -webkit-clip-path: circle(50% at 50% 50%)
+      clip-path: circle(50% at 50% 50%)
+      -webkit-shape-outside: circle(50% at 50% 50%)
+      shape-outside: circle(50% at 50% 50%)
+      border-radius: none
+      
+
+    +respond(phone)
+      transform: skewX(0)
+      margin: 1.5rem
+
+
+  &__img
+    height: 100%
+    transform: translateX(-4rem) scale(1.4)
+    backface-visibility: hidden
+    transition: all .3s
+
+  &__text
+    transform: skewX(12deg)
+    +respond(phone)
+      transform: skewX(0)
+
+  &__caption
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, 20%)
+    opacity: 0
+    color: $color-white
+    text-transform: uppercase
+    text-align: center
+    transition: all .3s
+    backface-visibility: hidden
+
+  &:hover &__caption
+    opacity: 1
+    transform: translate(-50%,-50%)
+
+  &:hover &__img
+    transform: translateX(-4rem) scale(1)
+    filter: blur(3px) brightness(80%)
